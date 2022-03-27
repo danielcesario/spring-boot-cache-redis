@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres
+    container_name: poc-db
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: main
+    ports:
+      - 5432:5432
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data:rw
+
+  cache:
+    image: redis:latest
+    container_name: poc-redis
+    command: redis-server --requirepass Redis2022!
+    ports:
+      - "6379:6379"
+    

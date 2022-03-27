@@ -1,0 +1,24 @@
+# Spring Boot configuration
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/main
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        default_schema: public
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc.time_zone: UTC
+  cache:
+    type: redis
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password: Redis2022!
+    timeout: 60000
